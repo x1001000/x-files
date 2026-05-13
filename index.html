@@ -74,27 +74,25 @@
   a { color: var(--amber); text-decoration: none; border-bottom: 1px dashed var(--amber); }
   a:hover { background: var(--amber); color: #000; }
 
-  /* ===== Top classification banner ===== */
-  .classified-banner {
-    background: var(--blood);
-    color: #fff;
-    text-align: center;
-    padding: 6px 0;
-    font-family: 'Special Elite', monospace;
-    letter-spacing: 6px;
-    font-size: 14px;
-    border-bottom: 2px solid #fff;
-    position: relative;
-    z-index: 10;
-  }
-
   /* ===== Header ===== */
   header {
     text-align: center;
-    padding: 80px 20px 50px;
+    padding: 60px 20px 40px;
     border-bottom: 1px solid var(--phosphor-dim);
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
   }
+  .header-left, .header-right {
+    flex: 1 1 0;
+    min-width: 220px;
+  }
+  .header-left { text-align: right; }
+  .header-right { text-align: left; }
+  .x-mark { flex: 0 0 auto; }
 
   .x-mark {
     font-family: 'Noto Sans TC', sans-serif;
@@ -108,7 +106,6 @@
       0 0 50px var(--phosphor);
     letter-spacing: -10px;
     margin-bottom: 0;
-    cursor: pointer;
     user-select: none;
   }
 
@@ -118,7 +115,8 @@
     font-size: 48px;
     letter-spacing: 18px;
     color: var(--phosphor);
-    margin: 14px 0 18px;
+    margin: 14px 0 4px;
+    text-align: right;
     text-shadow: 0 0 6px var(--phosphor), 0 0 18px var(--phosphor);
   }
 
@@ -132,12 +130,31 @@
     animation: flicker 4.5s infinite;
   }
 
+  .acr {
+    color: var(--phosphor);
+    font-weight: 700;
+    text-shadow: 0 0 4px var(--phosphor);
+  }
+
+  .acronym-list {
+    display: inline-block;
+    text-align: left;
+    font-family: 'Special Elite', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--phosphor-dim);
+    line-height: 1.7;
+  }
+
   .tagline-en {
     font-family: 'Special Elite', monospace;
     font-size: 14px;
     letter-spacing: 8px;
-    color: var(--phosphor-dim);
+    color: #fff;
     margin-top: 6px;
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.8), 0 0 16px rgba(255, 255, 255, 0.5), 0 0 28px rgba(255, 255, 255, 0.3);
+    animation: flicker 4.5s infinite;
+    cursor: pointer;
   }
 
   @keyframes flicker {
@@ -660,7 +677,6 @@
 
 <div class="scan-beam" id="scanBeam"></div>
 
-<div class="classified-banner">機密 CLASSIFIED — 已解密 DECLASSIFIED — 公開 OPEN</div>
 
 <div class="hud">
   <span>檔案編號 // FILE-X-2026-05</span>
@@ -671,14 +687,21 @@
 <audio id="themeAudio" src="The%20X-Files%20-%20Full.mp3" preload="auto"></audio>
 
 <header>
-  <div class="x-mark" id="xMark" title="點我 // click">X</div>
-  <div class="pursue-title">PURSUE</div>
-  <div style="font-family:'Noto Sans TC',sans-serif; font-size:14px; letter-spacing:4px; color:var(--phosphor-dim); max-width:680px; margin:0 auto;">
-    總統解封與不明異常現象遭遇通報系統<br>
-    <span style="font-family:'Special Elite',monospace; font-size:11px; letter-spacing:2px;">PRESIDENTIAL UNSEALING AND REPORTING SYSTEM FOR UAP ENCOUNTERS</span>
+  <div class="header-left">
+    <div class="pursue-title">PURSUE</div>
+    <div class="acronym-list">
+      <div><span class="acr">P</span>RESIDENTIAL</div>
+      <div><span class="acr">U</span>NSEALING AND</div>
+      <div><span class="acr">R</span>EPORTING</div>
+      <div><span class="acr">S</span>YSTEM FOR</div>
+      <div><span class="acr">U</span>AP</div>
+      <div><span class="acr">E</span>NCOUNTERS</div>
+    </div>
   </div>
-  <div class="tagline">真相就在那裡</div>
-  <div class="tagline-en">THE TRUTH IS OUT THERE</div>
+  <div class="x-mark">X</div>
+  <div class="header-right">
+    <div class="tagline-en" id="xMark">THE TRUTH IS OUT THERE</div>
+  </div>
 </header>
 
 <main>
@@ -737,12 +760,12 @@
         </colgroup>
         <thead>
           <tr id="thRow">
-            <th class="sortable" data-key="t"><span class="zh">檔名</span><span class="en">FILE <span class="arrow"></span></span></th>
-            <th class="sortable" data-key="a"><span class="zh">機關</span><span class="en">AGENCY <span class="arrow"></span></span></th>
-            <th class="sortable" data-key="d"><span class="zh">事件日期</span><span class="en">INCIDENT DATE <span class="arrow"></span></span></th>
-            <th class="sortable" data-key="r"><span class="zh">釋出</span><span class="en">RELEASE <span class="arrow"></span></span></th>
-            <th class="sortable" data-key="l"><span class="zh">地點</span><span class="en">LOC. <span class="arrow"></span></span></th>
-            <th class="sortable" data-key="k"><span class="zh">類型</span><span class="en">TYPE <span class="arrow"></span></span></th>
+            <th class="sortable" data-key="t"><span class="zh">檔名</span> <span class="arrow"></span></th>
+            <th class="sortable" data-key="a"><span class="zh">機關</span> <span class="arrow"></span></th>
+            <th class="sortable" data-key="d"><span class="zh">事件日期</span> <span class="arrow"></span></th>
+            <th class="sortable" data-key="r"><span class="zh">釋出</span> <span class="arrow"></span></th>
+            <th class="sortable" data-key="l"><span class="zh">地點</span> <span class="arrow"></span></th>
+            <th class="sortable" data-key="k"><span class="zh">類型</span> <span class="arrow"></span></th>
           </tr>
         </thead>
         <tbody id="tbody"></tbody>
