@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PURSUE｜X 檔案 // 真相就在那裡</title>
+<title>PURSUE | THE TRUTH IS OUT THERE</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=VT323&family=Special+Elite&family=Noto+Sans+TC:wght@300;400;700;900&display=swap" rel="stylesheet">
@@ -81,32 +81,36 @@
     border-bottom: 1px solid var(--phosphor-dim);
     position: relative;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
+    gap: 20px;
   }
-  .header-left, .header-right {
-    flex: 1 1 0;
-    min-width: 220px;
+  .header-content {
+    position: relative;
+    display: inline-block;
+    text-align: center;
   }
-  .header-left { text-align: right; }
-  .header-right { text-align: left; }
-  .x-mark { flex: 0 0 auto; }
 
   .x-mark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
     font-family: 'Noto Sans TC', sans-serif;
-    font-size: 180px;
+    font-size: 320px;
     font-weight: 900;
     line-height: 1;
-    color: #fff;
+    color: rgba(255, 255, 255, 0.08);
     text-shadow:
-      0 0 8px var(--phosphor),
-      0 0 25px var(--phosphor),
-      0 0 50px var(--phosphor);
+      0 0 10px var(--phosphor),
+      0 0 40px var(--phosphor-dim);
     letter-spacing: -10px;
     margin-bottom: 0;
     user-select: none;
+    pointer-events: none;
+    white-space: nowrap;
   }
 
   .pursue-title {
@@ -116,7 +120,7 @@
     letter-spacing: 18px;
     color: var(--phosphor);
     margin: 14px 0 4px;
-    text-align: right;
+    text-align: center;
     text-shadow: 0 0 6px var(--phosphor), 0 0 18px var(--phosphor);
   }
 
@@ -138,7 +142,7 @@
 
   .acronym-list {
     display: inline-block;
-    text-align: left;
+    text-align: center;
     font-family: 'Special Elite', monospace;
     font-size: 11px;
     letter-spacing: 2px;
@@ -151,7 +155,8 @@
     font-size: 14px;
     letter-spacing: 8px;
     color: #fff;
-    margin-top: 6px;
+    margin-top: 20px;
+    text-align: center;
     text-shadow: 0 0 6px rgba(255, 255, 255, 0.8), 0 0 16px rgba(255, 255, 255, 0.5), 0 0 28px rgba(255, 255, 255, 0.3);
     animation: flicker 4.5s infinite;
     cursor: pointer;
@@ -687,7 +692,8 @@
 <audio id="themeAudio" src="The%20X-Files%20-%20Full.mp3" preload="auto"></audio>
 
 <header>
-  <div class="header-left">
+  <div class="header-content">
+    <div class="x-mark">X</div>
     <div class="pursue-title">PURSUE</div>
     <div class="acronym-list">
       <div><span class="acr">P</span>RESIDENTIAL</div>
@@ -698,10 +704,7 @@
       <div><span class="acr">E</span>NCOUNTERS</div>
     </div>
   </div>
-  <div class="x-mark">X</div>
-  <div class="header-right">
-    <div class="tagline-en" id="xMark">THE TRUTH IS OUT THERE</div>
-  </div>
+  <div class="tagline-en" id="xMark">THE TRUTH IS OUT THERE</div>
 </header>
 
 <main>
